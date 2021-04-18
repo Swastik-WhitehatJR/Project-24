@@ -1,18 +1,18 @@
 const Engine = Matter.Engine;
-const World= Matter.World;
+const World = Matter.World;
 const Bodies = Matter.Bodies;
 
 //variables for engine and world
 var engine, world;
 
 //variables for glass objects
-var glass1, glass2, glass3, glass4; 
+var glass1, glass2, glass3, glass4;
 
 //variables for iron objects
-var iron1, iron2, iron3, iron4, iron5 ,iron6, iron7, iron8;
+var iron1, iron2, iron3, iron4, iron5, iron6, iron7, iron8;
 
 //variables for stone objects
-var stone1, stone2, stone3; 
+var stone1, stone2, stone3;
 
 //variables for rubber objects
 var rubber1, rubber2, rubber3, rubber4, rubber5, rubber6;
@@ -26,22 +26,23 @@ var bgImg;
 //variables for walls
 var left_wall, top_wall, right_wall;
 
+var c1, c2, c3, c4, c5;
 
 
-function preload()
-{
+
+function preload() {
     bgImg = loadImage("bgImg.png");
 }
 
 
 
-function setup(){
+function setup() {
     createCanvas(1800, 900);
 
     engine = Engine.create();
     world = engine.world;
 
-    
+
 
     iron1 = new Iron(500, 50, 40, 30);
     iron2 = new Iron(490, 100, 40, 30);
@@ -75,22 +76,28 @@ function setup(){
     hammer1 = new Hammer(200, 0, 120, 20);
 
 
-    box1 = new Box(1700,320,70,70);
-    box2 = new Box(1600,320,70,70);
-    box3 = new Box(1500,240,70,70);
-    box4 = new Box(1400,240,70,70);
+    box1 = new Box(1700, 320, 70, 70);
+    box2 = new Box(1600, 320, 70, 70);
+    box3 = new Box(1500, 240, 70, 70);
+    box4 = new Box(1400, 240, 70, 70);
 
     pig1 = new Pig(1300, 350);
-    log1 = new Log(1200,260,300, PI/2);
+    log1 = new Log(1200, 260, 300, PI / 2);
 
 
     pig3 = new Pig(1250, 220);
 
-    box5 = new Box(200,160,70,70);
+    box5 = new Box(200, 160, 70, 70);
 
 
-    ground = new Ground(width/2, 900, width, 15);
-  
+    ground = new Ground(width / 2, 900, width, 15);
+
+    c1 = new Cirlce(700, 600, 50);
+    c2 = new Cirlce(500, 500, 50);
+    c3 = new Cirlce(100, 300, 50);
+    c4 = new Cirlce(200, 200, 50);
+    c5 = new Cirlce(600, 600, 50);
+
 
     var no_gravity = {
         isStatic: true
@@ -99,16 +106,16 @@ function setup(){
 
     left_wall = Bodies.rectangle(1, 900, 30, 3200, no_gravity);
     World.add(world, left_wall);
-  
+
     top_wall = Bodies.rectangle(1, 1, 3200, 30, no_gravity);
     World.add(world, top_wall);
-  
-    right_wall = Bodies.rectangle(1800, 900, 30, 3200,no_gravity);
+
+    right_wall = Bodies.rectangle(1800, 900, 30, 3200, no_gravity);
     World.add(world, right_wall);
 
 }
 
-function draw(){
+function draw() {
     background('lightblue');
 
     background(bgImg);
@@ -126,6 +133,12 @@ function draw(){
     iron7.display();
     iron8.display();
 
+    c1.display();
+    c2.display();
+    c3.display();
+    c4.display();
+    c5.display()
+
     stone1.display();
     stone2.display();
     stone3.display();
@@ -141,7 +154,7 @@ function draw(){
     rubber4.display();
     rubber5.display();
     rubber6.display();
-    
+
     hammer1.display();
 
     box1.display();
